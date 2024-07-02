@@ -69,4 +69,12 @@ fi
 
 echo "Deplegando proveedor de identidad ..."
 
-docker compose up -d
+# Comprobar si docker-compose está corriendo
+if docker compose ps | grep 'Up'; then
+  echo "docker-compose ya está corriendo. Reiniciando..."
+  docker compose down
+  docker compose up -d
+else
+  echo "docker-compose no está corriendo. Iniciando..."
+  docker compose up -d
+fi
