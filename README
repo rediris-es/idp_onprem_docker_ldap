@@ -1,0 +1,14 @@
+1- Descargar repositorio de github 
+
+2- Rellenar los fichero config_files/config_back.env y config_files/config_front.env con los datos de configuración necesarios
+
+3- Ejecutar el script init_script para el despliegue de la instancía de docker. 
+    Se neceita pasar los siguientes parámetros: <nombre_corto_inst> <C> <ST> <L> <O> <OU> <CN> <email>
+    Ejemplo: sh init_script.sh  'RedIRIS' 'ES' 'Madrid' 'Madrid' 'RedIRIS' 'Middleware' 'rediris.idpnube.rediris.es' 'admin@rediris.es'
+
+4- Configurar apache/nginx para que redireccione a los contenedores de docker. Se muestran ejemplos en la documentación.
+
+
+
+
+
