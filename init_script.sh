@@ -7,8 +7,6 @@ if [ "$#" -ne 8 ]; then
   exit 1
 fi
 
-echo "Proceso de generación de certificados de firma para el IdP en proceso..."
-
 # Asignar parámetros a variables
 SHORT_INST=$1
 C=$2
@@ -68,5 +66,7 @@ else
   echo "Error al generar los certificados."
   exit 1
 fi
+
+echo "Deplegando proveedor de identidad ..."
 
 docker compose up -d
