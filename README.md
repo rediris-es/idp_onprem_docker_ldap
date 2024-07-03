@@ -12,13 +12,65 @@
 
 4- Configurar apache/nginx para que redireccione a los contenedores de docker. Se muestran ejemplos en la documentación.
 
+Ejemplos de configuración para nginx y apache. Los proxysPass son los correctos. El resto de la configuración a modificar según se necesite
+
 ```plain
-dasdsad
+<VirtualHost *:443>
+    ServerName 
+    CustomLog /log/apache/access.log combined
+    ErrorLog /log/apache/error.log
+
+    SSLEngine               on
+    SSLCertificateFile      
+    SSLCertificateKeyFile   
+    SSLProtocol             all -SSLv2 -SSLv3
+    SSLCipherSuite          ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-AES128-SHA256:ECDHE-RSA-AES128-SHA256:ECDHE-ECDSA-AES128-SHA:ECDHE-RSA-AES256-SHA384:ECDHE-RSA-AES128-SHA:ECDHE-ECDSA-AES256-SHA384:ECDHE-ECDSA-AES256-SHA:ECDHE-RSA-AES256-SHA:DHE-RSA-AES128-SHA256:DHE-RSA-AES128-SHA:DHE-RSA-AES256-SHA256:DHE-RSA-AES256-SHA:ECDHE-ECDSA-DES-CBC3-SHA:ECDHE-RSA-DES-CBC3-SHA:EDH-RSA-DES-CBC3-SHA:AES128-GCM-SHA256:AES256-GCM-SHA384:AES128-SHA256:AES256-SHA256:AES128-SHA:AES256-SHA:DES-CBC3-SHA:!DSS
+    SSLHonorCipherOrder     on
+    SSLProxyEngine on
+
+    ProxyPreserveHost On
+
+    ProxyPass / http://127.0.01:8052/
+    ProxyPassReverse / http://127.0.0.1:8052/
+
+</VirtualHost>
 ```
 
 
+Configuración nginx: 
+
 ```plain
-fsdfdsf
+
+client_max_body_size 0;
+server {
+  listen 80;
+  server_name nombreDelServicio;
+  return 301 https://$host$request_uri;
+}
+
+server {
+  listen 443 ssl;
+  server_name nombreDelServicio;
+
+  ssl_certificate /ruta/al/certificado;
+  ssl_certificate_key /ruta/a/la/clavePrivafa;
+  ssl_trusted_certificate /ruta/al/certificado/de/la/CA;
+  access_log            /ruta/access/logs;
+  error_log             /ruta/error/logs;
+
+location / {
+
+      proxy_set_header X-Real-IP $remote_addr;
+      proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+      proxy_set_header X-Forwarded-Proto $scheme;
+      proxy_set_header Host $http_host;
+      proxy_set_header X-NginX-Proxy true;
+
+      proxy_redirect off;
+      proxy_pass http://127.0.0.1:8052;
+
+ }
+
+}
+
 ```
-
-
