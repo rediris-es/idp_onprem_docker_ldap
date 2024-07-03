@@ -1,7 +1,7 @@
 Requisitos del sistema: 
 
     - Min 4 CPUs
-    - 16 GB RAM
+    - Min 16 GB RAM
 
 Directorios y ficheros del proyecto: 
 
