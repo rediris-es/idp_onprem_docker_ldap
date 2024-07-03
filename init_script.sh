@@ -54,8 +54,11 @@ fi
 
 echo "Asignando permisos a los certificados generados..."
 
-chmod 644 ./config_files/simpleSAMLphp/certificados_firma/${SHORT_INST}.crt
-chmod 644 ./config_files/simpleSAMLphp/certificados_firma/${SHORT_INST}.pem
+chmod 664 ./config_files/simpleSAMLphp/certificados_firma/${SHORT_INST}.crt
+chmod 664 ./config_files/simpleSAMLphp/certificados_firma/${SHORT_INST}.pem
+chown 33:33 ./config_files/simpleSAMLphp/certificados_firma/${SHORT_INST}.crt
+chown 33:33 ./config_files/simpleSAMLphp/certificados_firma/${SHORT_INST}.pem
+
 
 # Verificar si el comando se ejecutó correctamente
 if [ $? -eq 0 ]; then
