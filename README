@@ -1,6 +1,8 @@
 1- Descargar repositorio de github 
 
-    https://github.com/rediris-es/IdPnube_onprem_docker_ldap.git
+    - git clone https://github.com/rediris-es/IdPnube_onprem_docker_ldap.git
+
+    - Descargar el zip del proyecto
 
 2- Rellenar los fichero config_files/config_back.env y config_files/config_front.env con los datos de configuración necesarios
 
