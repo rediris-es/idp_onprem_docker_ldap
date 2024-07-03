@@ -14,6 +14,8 @@
 
 Ejemplos de configuración para nginx y apache. Los proxysPass son los correctos. El resto de la configuración a modificar según se necesite
 
+Configuración apache
+
 ```plain
 <VirtualHost *:443>
     ServerName 
