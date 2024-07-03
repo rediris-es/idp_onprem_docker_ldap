@@ -1,3 +1,16 @@
+Requisitos del sistema: 
+    - Min 4 CPUs
+    - 16 GB RAM
+
+Directorios y ficheros del proyecto: 
+    - config_files -> Ficheros de configuración de arranque. Tambien se encuentran los directorios donde se almacenan las imagenes, los logos y el favicon de la interfaz del proveedor 
+    - sp-remote-xml -> Directorio donde se pueden almacenar los diferentes metadatos en formato XML de los servicios a los que se quiera unir el IdP 
+    - init-scrip.sh -> script de automatización de despliegue 
+    - docker-compose.yaml -> configuración de los contenedores a desplegar
+    
+
+PASOS PARA DESPLEGAR EL PROVEEDOR DE IDENtIDAD:
+
 1- Descargar repositorio de github. existen varias opciones
 
     - git clone https://github.com/rediris-es/IdPnube_onprem_docker_ldap.git
