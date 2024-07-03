@@ -11,7 +11,7 @@ Directorios y ficheros del proyecto:
     - docker-compose.yaml -> configuración de los contenedores a desplegar
     
 
-PASOS PARA DESPLEGAR EL PROVEEDOR DE IDENtIDAD:
+PASOS PARA DESPLEGAR EL PROVEEDOR DE IDENTIDAD:
 
 1- Descargar repositorio de github. existen varias opciones
 
