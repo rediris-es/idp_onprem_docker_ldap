@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: ghcr.io/rediris-es/idpnube-onprem-docker/frontend-sso-ssp:latest
+    image: ghcr.io/rediris-es/idp-onprem-docker-ldap/frontend-sso-ssp:latest
     ports:
       - "8052:80"
     depends_on:
@@ -29,7 +29,7 @@ services:
         max-file: "3"
 
   sso-fpm:
-    image: ghcr.io/rediris-es/idpnube-onprem-docker/backend-sso-ssp:latest
+    image: ghcr.io/rediris-es/idp-onprem-docker-ldap/backend-sso-ssp:latest
     expose:
       - 9000
     volumes:
