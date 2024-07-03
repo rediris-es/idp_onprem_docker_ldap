@@ -1,5 +1,7 @@
 1- Descargar repositorio de github 
 
+    https://github.com/rediris-es/IdPnube_onprem_docker_ldap.git
+
 2- Rellenar los fichero config_files/config_back.env y config_files/config_front.env con los datos de configuración necesarios
 
 3- Ejecutar el script init_script para el despliegue de la instancía de docker. 
