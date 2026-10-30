@@ -1,6 +1,6 @@
 services:
   nginx:
-    image: ghcr.io/rediris-es/idp-onprem-docker-ldap/frontend-sso-ssp-https:2.4.3
+    image: ghcr.io/rediris-es/idp-onprem-docker-ldap/frontend-sso-ssp-https:2.4.4
     ports:
       - "443:443"
     volumes:
@@ -31,14 +31,14 @@ services:
         max-file: "3"
 
   sso-fpm:
-    image: ghcr.io/rediris-es/idp-onprem-docker-ldap/backend-sso-ssp:2.4.3
+    image: ghcr.io/rediris-es/idp-onprem-docker-ldap/backend-sso-ssp:2.4.4
     expose:
       - 9000
     volumes:
       - ./sp-remote-xml:/var/simplesamlphp/metadata/sp-remote-xml/
       - ./config_files/simpleSAMLphp/images:/var/simplesamlphp/modules/themeRedIRIS/public/assets/images
       - ./config_files/simpleSAMLphp/certificados_firma:/var/simplesamlphp/cert/
-    container_name: sso_backend
+    container_name: sso-fpm
     restart: always
     healthcheck:
       test: ["CMD-SHELL", "pgrep php-fpm || exit 1"]
